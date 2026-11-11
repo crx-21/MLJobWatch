@@ -1,0 +1,211 @@
+/* ================================================================
+   Front Page — Claymorphism Landing
+   ================================================================ */
+:root {
+  --clay-font: 'Fredoka', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #f8fafc 0%,
+    #e2e8f0 50%,
+    #cbd5e1 100%
+  );
+  font-family: var(--clay-font);
+  overflow-x: hidden;
+}
+
+/* Hide default scrollbar on front page */
+::-webkit-scrollbar { display: none; }
+
+/* ================================================================
+   Hero Layout — Text Left, Robot Right
+   ================================================================ */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+  height: 80vh;
+}
+
+.hero-text {
+  flex: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hero-text p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.hero-robot {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.robot-gif {
+  max-width: 100%;
+  height: auto;
+  max-height: 420px;
+  width: auto;
+}
+
+/* ================================================================
+   Big CTA Button — Claymorphic with arrow
+   ================================================================ */
+.cta-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-go-jobs {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 48px;
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-family: var(--clay-font);
+  color: #ffffff;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow:
+    0 18px 36px -9px rgba(59, 130, 246, 0.5),
+    inset 6px 6px 12px rgba(255, 255, 255, 0.35),
+    inset -6px -6px 12px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.btn-go-jobs:hover {
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  transform: translateY(-3px);
+  box-shadow:
+    0 24px 48px -12px rgba(59, 130, 246, 0.6),
+    inset 6px 6px 12px rgba(255, 255, 255, 0.45),
+    inset -6px -6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.btn-go-jobs:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.35),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-arrow {
+  font-size: 1.5rem;
+  font-weight: 900;
+  transition: transform 0.3s ease;
+}
+
+.btn-go-jobs:hover .btn-arrow {
+  transform: translateX(6px);
+}
+
+/* ================================================================
+   Secondary Nav
+   ================================================================ */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--clay-font);
+  padding: 10px 20px;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--clay-surface);
+  box-shadow:
+    inset 3px 3px 6px var(--clay-inner-light),
+    inset -3px -3px 6px var(--clay-inner-dark);
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .hero-text { flex: none; }
+  .hero-robot { flex: none; }
+
+  .robot-gif { max-height: 320px; }
+
+  .hero-text h1 { font-size: 2.5rem; text-align: center; }
+  .hero-text p { font-size: 1.2rem; text-align: center; }
+  .btn-go-jobs { width: 100%; max-width: 300px; justify-content: center; }
+  .nav-links { flex-direction: column; align-items: center; gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .robot-gif { max-height: 260px; }
+  .hero-text h1 { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
